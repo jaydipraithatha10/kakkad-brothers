@@ -4,122 +4,260 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#6B3F20">
-    <meta name="description" content="Jyoti Gruh Udhyog Product Menu">
 
-    <title>Jyoti Gruh Udhyog</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="favicon.ico">
+    <meta name="theme-color"
+          content="#B5121B">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="description"
+          content="Kakkad Pickles - Real Taste Of Kathiyawadi">
 
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- WhatsApp / Social Preview -->
 
-    <link rel="stylesheet" href="style.css?v=6">
+    <meta property="og:title"
+          content="Kakkad Pickles">
+
+    <meta property="og:description"
+          content="Real Taste Of Kathiyawadi">
+
+    <meta property="og:image"
+          content="logo.webp">
+
+    <meta property="og:type"
+          content="website">
+
+
+    <title>Kakkad Pickles</title>
+
+
+    <!-- FAVICON -->
+
+    <link rel="icon"
+          href="favicon.ico">
+
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="style.css?v=7">
 
 </head>
 
+
 <body>
+
+
+<!-- ===========================
+     HEADER
+=========================== -->
 
 <header class="header">
 
-    <img src="logo.webp" class="logo" alt="Jyoti Gruh Udhyog">
 
-    <h1>KAKKAD BROTHERS</h1>
+    <img
+        src="logo.webp"
+        class="logo"
+        alt="Kakkad Pickles">
+
+
+    <h1>
+        KAKKAD PICKLES
+    </h1>
+
 
     <p class="tagline">
-        Real Taste Of Kathyawadi
+
+        Real Taste Of Kathiyawadi
+
     </p>
 
+
     <p class="location">
+
         📍 Rajkot, Gujarat
+
     </p>
+
+
+    <!-- CONTACT BUTTONS -->
 
     <div class="contact">
 
-        <a href="tel:+919824899182" class="call-btn">
+
+        <a
+            href="tel:+919824899182"
+            class="call-btn"
+        >
+
             📞 Call
+
         </a>
 
-        <a href="https://wa.me/919824899182" class="whatsapp-btn" target="_blank">
+
+        <a
+            href="https://wa.me/919824899182"
+            class="whatsapp-btn"
+            target="_blank"
+            rel="noopener"
+        >
+
             💬 WhatsApp
+
         </a>
+
 
     </div>
 
+
 </header>
+
+
+
+<!-- ===========================
+     PRODUCT HEADER
+=========================== -->
 
 <section class="menu-header">
 
+
     <h2 class="product-heading">
+
         PRODUCT LIST
         (<span id="productCount">0</span>)
+
     </h2>
 
+
+    <!-- SEARCH -->
+
     <div class="search-box">
+
 
         <input
             type="search"
             id="searchInput"
             placeholder="🔍 Search Products..."
             autocomplete="off"
-            spellcheck="false">
+            spellcheck="false"
+        >
 
-       
 
     </div>
 
 
 </section>
 
+
+
+<!-- ===========================
+     PRODUCT MENU
+=========================== -->
+
 <main id="menuContainer">
 
-    <div id="loader" class="loader">
+
+    <!-- LOADER -->
+
+    <div
+        id="loader"
+        class="loader"
+    >
 
         <div class="spinner"></div>
 
-        <p>Loading Products...</p>
+        <p>
+            Loading Products...
+        </p>
 
     </div>
 
+
 </main>
+
+
+
+<!-- ===========================
+     REVIEW SECTION
+=========================== -->
 
 <section class="review-section">
 
-    <h3>🌟 તમને અમારી પ્રોડક્ટ કેવી લાગી?</h3>
+
+    <h3>
+
+        🌟 તમને અમારી પ્રોડક્ટ કેવી લાગી?
+
+    </h3>
+
 
     <div class="review-buttons">
 
-        <button class="review-btn excellent"
-            onclick="sendReview('ઉત્તમ')">
+
+        <button
+            class="review-btn excellent"
+            onclick="sendReview('ઉત્તમ')"
+        >
 
             😊 ઉત્તમ
 
         </button>
 
-        <button class="review-btn good"
-            onclick="sendReview('સારી')">
+
+        <button
+            class="review-btn good"
+            onclick="sendReview('સારી')"
+        >
 
             🙂 સારી
 
         </button>
 
-        <button class="review-btn improve"
-            onclick="sendReview('સુધારાની જરૂર છે')">
+
+        <button
+            class="review-btn improve"
+            onclick="sendReview('સુધારાની જરૂર છે')"
+        >
 
             🙏 સુધારાની જરૂર છે
 
         </button>
 
+
     </div>
+
 
 </section>
 
-<div id="cartBar" class="cart-bar">
+
+
+<!-- ===========================
+     CART BAR
+=========================== -->
+
+<div
+    id="cartBar"
+    class="cart-bar"
+>
+
 
     <div class="cart-details">
+
 
         <strong>
 
@@ -128,13 +266,16 @@
 
         </strong>
 
+
         <div id="cartTotal">
 
             ₹0
 
         </div>
 
+
     </div>
+
 
     <button id="orderBtn">
 
@@ -142,19 +283,35 @@
 
     </button>
 
+
 </div>
+
+
+
+<!-- ===========================
+     FOOTER
+=========================== -->
 
 <footer>
 
+
     <p>
 
-        © 2026 Jyoti Gruh Udhyog
+        © 2026 Kakkad Pickles
 
     </p>
 
+
 </footer>
 
-<script src="api.js?v=6"></script>
+
+
+<!-- ===========================
+     JAVASCRIPT
+=========================== -->
+
+<script src="api.js?v=7"></script>
+
 
 </body>
 
