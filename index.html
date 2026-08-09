@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="gu">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6B3F20">
+    <meta name="description" content="Jyoti Gruh Udhyog Product Menu">
+
+    <title>Jyoti Gruh Udhyog</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css?v=6">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <img src="logo.webp" class="logo" alt="Jyoti Gruh Udhyog">
+
+    <h1>KAKKAD BROTHERS</h1>
+
+    <p class="tagline">
+        Real Taste Of Kathyawadi
+    </p>
+
+    <p class="location">
+        📍 Rajkot, Gujarat
+    </p>
+
+    <div class="contact">
+
+        <a href="tel:+919824899182" class="call-btn">
+            📞 Call
+        </a>
+
+        <a href="https://wa.me/919824899182" class="whatsapp-btn" target="_blank">
+            💬 WhatsApp
+        </a>
+
+    </div>
+
+</header>
+
+<section class="menu-header">
+
+    <h2 class="product-heading">
+        PRODUCT LIST
+        (<span id="productCount">0</span>)
+    </h2>
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="🔍 Search Products..."
+            autocomplete="off"
+            spellcheck="false">
+
+       
+
+    </div>
+
+
+</section>
+
+<main id="menuContainer">
+
+    <div id="loader" class="loader">
+
+        <div class="spinner"></div>
+
+        <p>Loading Products...</p>
+
+    </div>
+
+</main>
+
+<section class="review-section">
+
+    <h3>🌟 તમને અમારી પ્રોડક્ટ કેવી લાગી?</h3>
+
+    <div class="review-buttons">
+
+        <button class="review-btn excellent"
+            onclick="sendReview('ઉત્તમ')">
+
+            😊 ઉત્તમ
+
+        </button>
+
+        <button class="review-btn good"
+            onclick="sendReview('સારી')">
+
+            🙂 સારી
+
+        </button>
+
+        <button class="review-btn improve"
+            onclick="sendReview('સુધારાની જરૂર છે')">
+
+            🙏 સુધારાની જરૂર છે
+
+        </button>
+
+    </div>
+
+</section>
+
+<div id="cartBar" class="cart-bar">
+
+    <div class="cart-details">
+
+        <strong>
+
+            🛒 Cart
+            (<span id="cartItems">0</span>)
+
+        </strong>
+
+        <div id="cartTotal">
+
+            ₹0
+
+        </div>
+
+    </div>
+
+    <button id="orderBtn">
+
+        🟢 Order on WhatsApp
+
+    </button>
+
+</div>
+
+<footer>
+
+    <p>
+
+        © 2026 Jyoti Gruh Udhyog
+
+    </p>
+
+</footer>
+
+<script src="api.js?v=6"></script>
+
+</body>
+
+</html>
