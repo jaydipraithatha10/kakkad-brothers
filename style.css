@@ -597,3 +597,23 @@ footer{
 }
 
 }
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+    margin-top:30px;
+    padding:20px 15px;
+    text-align:center;
+    background:#f8f3ec;
+    border-top:1px solid #eadbc8;
+}
+
+footer p{
+    margin:0;
+    font-size:14px;
+    font-weight:500;
+    color:#8b5a2b;
+    letter-spacing:.3px;
+}
