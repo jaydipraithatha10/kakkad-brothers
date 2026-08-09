@@ -1149,7 +1149,7 @@ if(orderBtn){
 
             window.open(
 
-                "https://wa.me/919712149344?text=" +
+                "https://wa.me/919824899182?text=" +
 
                 encodeURIComponent(
                     message
