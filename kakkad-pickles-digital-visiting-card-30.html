@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07150f">
+<title>Kakkad Pickles | Rajkot</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050806;color:#fff;font-family:Arial,sans-serif}
+.wrap{max-width:520px;margin:auto;min-height:100vh;padding:18px 14px 32px;background:radial-gradient(circle at 50% 0,#173b27 0,#07120d 42%,#030504 100%)}
+.card{border:1px solid #c99a32;border-radius:28px;padding:20px;background:linear-gradient(145deg,#101d16,#050806);box-shadow:0 0 30px #000}
+.logo{width:92px;height:92px;margin:auto;border:2px solid #d8aa45;border-radius:50%;display:grid;place-items:center;background:#06150d;box-shadow:0 0 25px #a87520;font-size:52px;color:#e4b74f;font-family:Georgia}
+h1{text-align:center;margin:12px 0 2px;font:700 34px Georgia;color:#e6b84f;letter-spacing:2px}
+.sub{text-align:center;color:#ddd;font-size:14px;letter-spacing:2px}.tag{text-align:center;font:italic 20px Georgia;color:#f2dfb0;margin:12px 0 20px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:1px solid #b8892d;border-radius:16px;padding:14px 8px;text-align:center;text-decoration:none;color:#fff;font-weight:700;background:linear-gradient(135deg,#12351f,#07150e);box-shadow:inset 0 1px #ffffff22;cursor:pointer}.btn b{display:block;color:#e8bb58;font-size:18px;margin-bottom:4px}.btn small{color:#bbb}
+.section{margin-top:18px}.title{color:#e7b94f;text-align:center;font:700 22px Georgia;margin:12px 0}
+.hero{border-radius:20px;padding:22px 16px;background:linear-gradient(120deg,#0d2b1a,#211609);border:1px solid #a87b2c;text-align:center}
+.hero strong{display:block;font:700 24px Georgia;color:#f0c45c}.hero p{color:#ddd;margin:8px 0 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product{min-width:0;min-height:78px;padding:15px 27px 15px 12px;border-radius:18px;border:1px solid #8e6728;background:linear-gradient(145deg,#12251a 0%,#07110c 100%);display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s;box-shadow:inset 0 1px 0 #ffffff12,0 5px 14px #0005}
+.product:active{transform:scale(.97)}
+.product:hover{transform:translateY(-2px);border-color:#e0b34e;box-shadow:0 9px 22px #0008,0 0 12px #b7862c33}
+.product h3{margin:0;width:100%;color:#edc35d;font:700 14px/1.25 Georgia,serif;letter-spacing:.15px;word-break:normal;overflow-wrap:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.product:after{display:none}
+
+.selected-view{margin:0 0 14px;padding:12px;border:1px solid #b8892d;border-radius:16px;background:linear-gradient(145deg,#172b1d,#07100b);text-align:center;box-shadow:inset 0 1px 0 #ffffff12}
+.selected-name{font:700 20px Georgia;color:#eac05b}
+.selected-size{margin-top:5px;color:#ddd;font-size:13px}
+.sizebtn.selected{border-color:#f0c65f;background:linear-gradient(135deg,#9b7026,#d8a83f);color:#111;box-shadow:0 0 14px #d2a13d55}
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-top:8px}
+.product{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:118px}
+.sizebtn{border:1px solid #a77b2c;border-radius:10px;padding:7px 4px;width:100%;background:linear-gradient(135deg,#0c2115,#07100b);color:#eee;font-size:11px;line-height:1.2;cursor:pointer}
+.sizebtn b{display:block;color:#e8bb58;font-size:18px;margin:3px 0 5px}.sizebtn small{display:block;font-size:10px;letter-spacing:.6px;color:#bbb}
+.sizebtn:active{transform:scale(.96);background:#17301f}
+.product h3{padding:0!important;white-space:normal;text-align:center}
+.location-only{display:flex;justify-content:center;align-items:center}
+.location-only .btn{width:min(100%,340px)}
+@media(max-width:360px){.grid{gap:9px}.product{padding:14px 25px 14px 9px;min-height:74px}.product h3{font-size:12.5px}}
+
+
+.cartbar{
+  position:fixed;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  width:min(94%,480px);
+  z-index:30;
+}
+.cartbtn{
+  width:100%;
+  border:1px solid #e3b64f;
+  border-radius:16px;
+  padding:13px 16px;
+  background:linear-gradient(135deg,#c8922d,#edc45d);
+  color:#111;
+  font-weight:900;
+  font-size:15px;
+  box-shadow:0 8px 25px #000b;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+.cartcount{
+  min-width:30px;
+  text-align:center;
+  background:#111;
+  color:#f0c45c;
+  border-radius:20px;
+  padding:5px 9px;
+}
+.cartpanel{
+  display:none;
+  position:fixed;
+  left:50%;
+  bottom:78px;
+  transform:translateX(-50%);
+  width:min(94%,480px);
+  max-height:58vh;
+  overflow:auto;
+  z-index:29;
+  background:linear-gradient(180deg,#0d1a12,#050907);
+  border:1px solid #c99a32;
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 18px 55px #000e;
+}
+.cartpanel.show{display:block}
+.carthead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+.carthead strong{
+  color:#edc35d;
+  font:700 22px Georgia,serif;
+}
+.closecart{
+  border:1px solid #765721;
+  background:#0b1710;
+  color:#ddd;
+  border-radius:10px;
+  width:34px;
+  height:34px;
+  cursor:pointer;
+}
+.cartitem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #ffffff14;
+  color:#eee;
+}
+.cartitemname{font-weight:700}
+.cartitemmeta{display:block;color:#aaa;font-size:12px;margin-top:3px}
+.qty{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.qty button{
+  width:30px;height:30px;
+  border:1px solid #b8892d;
+  border-radius:8px;
+  background:#10251a;
+  color:#e8bb58;
+  font-weight:bold;
+  cursor:pointer;
+}
+.cartsummary{
+  display:flex;
+  justify-content:space-between;
+  margin-top:15px;
+  padding-top:12px;
+  border-top:1px solid #b8892d55;
+  color:#e8bb58;
+  font-weight:900;
+  font-size:18px;
+}
+.cartorder{
+  margin-top:12px;
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:13px;
+  background:linear-gradient(135deg,#c8922d,#edc45d);
+  color:#111;
+  font-weight:900;
+  cursor:pointer;
+}
+.product{
+  min-height:178px;
+  padding:18px 24px;
+}
+.product h3{
+  min-height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+  line-height:1.25;
+  margin-bottom:10px;
+}
+.sizebtn{
+  min-height:96px;
+  padding:10px 6px;
+  font-size:14px;
+  border-radius:13px;
+}
+@media(max-width:380px){
+  .grid{gap:11px}
+  .product{min-height:178px;padding:16px 24px 16px 10px}
+  .product h3{font-size:15px;min-height:44px}
+  .sizes{gap:8px}
+  .sizebtn{min-height:82px;font-size:12px;padding:9px 5px}
+  .sizebtn b{font-size:15px}
+  .cartpanel{max-height:55vh}
+}
+.footer{text-align:center;color:#aaa;font-size:13px;margin-top:22px}.phone{color:#e5b64f;font-weight:bold}
+
+/* FINAL PRODUCT CARD DESIGN */
+#products .grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:14px !important;
+}
+#products .product{
+  min-width:0 !important;
+  min-height:190px !important;
+  height:auto !important;
+  padding:18px 14px 16px !important;
+  border:1px solid #9b742d !important;
+  border-radius:20px !important;
+  background:linear-gradient(145deg,#102319,#07100b) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  text-align:center !important;
+  box-shadow:inset 0 1px 0 #ffffff10,0 5px 16px #0006 !important;
+}
+#products .product h3{
+  width:100% !important;
+  min-height:42px !important;
+  margin:0 0 12px !important;
+  padding:0 4px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#edc35d !important;
+  font:700 17px/1.25 Georgia,serif !important;
+  text-align:center !important;
+  overflow:visible !important;
+  -webkit-line-clamp:unset !important;
+}
+#products .sizes{
+  width:100% !important;
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:10px !important;
+  margin:0 !important;
+}
+#products .sizebtn{
+  width:100% !important;
+  min-height:105px !important;
+  padding:10px 5px !important;
+  border:1px solid #a77b2c !important;
+  border-radius:14px !important;
+  background:linear-gradient(145deg,#0b1d13,#06100a) !important;
+  color:#fff !important;
+  font:400 14px/1.15 Arial,sans-serif !important;
+  cursor:pointer !important;
+  touch-action:manipulation !important;
+}
+#products .sizebtn b{
+  display:block !important;
+  margin:6px 0 !important;
+  color:#f0c45c !important;
+  font:bold 20px Arial,sans-serif !important;
+}
+#products .sizebtn small{
+  display:block !important;
+  color:#d9d9d9 !important;
+  font:700 9px/1.1 Arial,sans-serif !important;
+  letter-spacing:.5px !important;
+}
+#products .sizebtn.selected{
+  background:linear-gradient(145deg,#c58e2b,#efc45a) !important;
+  border-color:#ffe08b !important;
+  color:#111 !important;
+  box-shadow:0 0 18px #d9a83d66 !important;
+}
+#products .sizebtn.selected b,
+#products .sizebtn.selected small{color:#111 !important}
+#products .product:after{display:none !important}
+
+@media(max-width:380px){
+  #products .grid{gap:11px !important}
+  #products .product{min-height:180px !important;padding:16px 10px 14px !important}
+  #products .product h3{font-size:15px !important;min-height:40px !important}
+  #products .sizebtn{min-height:98px !important;font-size:13px !important}
+  #products .sizebtn b{font-size:18px !important}
+}
+
+
+/* CLEAN PRODUCT CATALOG — MOBILE FIRST */
+#products .grid{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:12px !important;
+}
+#products .product{
+  width:100% !important;
+  min-height:0 !important;
+  padding:16px !important;
+  border:1px solid #806027 !important;
+  border-radius:18px !important;
+  background:linear-gradient(135deg,#102118,#07110c) !important;
+  display:block !important;
+  box-shadow:0 4px 14px #0005 !important;
+}
+#products .product h3{
+  width:100% !important;
+  min-height:0 !important;
+  margin:0 0 13px !important;
+  padding:0 !important;
+  display:block !important;
+  color:#e9bb55 !important;
+  font:700 20px/1.2 Georgia,serif !important;
+  text-align:left !important;
+}
+#products .sizes{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:10px !important;
+  width:100% !important;
+  margin:0 !important;
+}
+#products .sizebtn{
+  min-height:0 !important;
+  height:104px !important;
+  padding:10px 6px !important;
+  border:1px solid #9b742d !important;
+  border-radius:13px !important;
+  background:#09160f !important;
+  color:#e7e7e7 !important;
+  font:500 14px/1.2 Arial,sans-serif !important;
+  touch-action:manipulation !important;
+}
+#products .sizebtn b{
+  display:block !important;
+  margin:5px 0 8px !important;
+  color:#eabd57 !important;
+  font:bold 21px Arial,sans-serif !important;
+}
+#products .sizebtn small{
+  display:block !important;
+  color:#ddd !important;
+  font:700 10px Arial,sans-serif !important;
+  letter-spacing:.8px !important;
+}
+#products .sizebtn.selected{
+  background:linear-gradient(135deg,#c99531,#e8bb55) !important;
+  color:#111 !important;
+  border-color:#f6d67e !important;
+}
+#products .sizebtn.selected b,
+#products .sizebtn.selected small{color:#111 !important}
+#products .product:after{display:none !important}
+
+@media(min-width:600px){
+  #products .grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+
+
+/* CENTER ALL PRODUCT NAMES */
+#products .product h3{
+  width:100% !important;
+  text-align:center !important;
+  justify-content:center !important;
+  align-items:center !important;
+  display:flex !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding:0 !important;
+}
+
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<div class="logo">K</div>
+<h1>KAKKAD</h1><div class="sub">PICKLES • RAJKOT</div>
+<div class="tag">Real taste of Kathyawadi</div>
+
+<div class="actions">
+<a class="btn" href="tel:+919824899182"><b>📞 CALL NOW</b><small>9824899182</small></a>
+<a class="btn" href="https://wa.me/919824899182?text=Hello%20Kakkad%20Pickles%2C%20I%20want%20to%20place%20an%20order." target="_blank"><b>🟢 WHATSAPP</b><small>Order Now</small></a>
+<button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><b>🛒 PRODUCTS</b><small>View Pickles</small></button>
+<button class="btn" onclick="shareCard()"><b>↗ SHARE</b><small>Share Card</small></button>
+</div>
+
+<div class="section hero"><strong>AUTHENTIC KATHIYAWADI TASTE</strong><p>Traditional recipes • Premium ingredients • Made with care</p></div>
+
+<div class="section" id="products" style="padding:18px 12px;border:1px solid #5f4720;border-radius:22px;background:linear-gradient(180deg,#0b160f,#050907);box-shadow:inset 0 1px 0 #ffffff0d"><div class="title">OUR PICKLES</div><div style="text-align:center;color:#aaa;font-size:12px;margin:-5px 0 14px;letter-spacing:1px">SELECT SIZE • ADD TO CART</div>
+<div id="selectedProductView" class="selected-view" style="display:none">
+  <div class="selected-name"></div>
+  <div class="selected-size"></div>
+</div>
+<div class="grid">
+<div class="product">
+  <h3>Golkeri</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Golkeri',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Golkeri',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Chundo</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Chundo',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Chundo',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Keri Gunda</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Keri Gunda',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Keri Gunda',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>SP Gunda</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('SP Gunda',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('SP Gunda',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Chana Methi Keri</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Chana Methi Keri',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Chana Methi Keri',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Khati Keri</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Khati Keri',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Khati Keri',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Mix Punjabi</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Mix Punjabi',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Mix Punjabi',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Sweet Lime</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Sweet Lime',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Sweet Lime',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Khata Limbu</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Khata Limbu',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Khata Limbu',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Rayta Lal Marcha</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Rayta Lal Marcha',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Rayta Lal Marcha',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Sweet Red Chilly</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Sweet Red Chilly',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Sweet Red Chilly',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Lasen Keri</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Lasen Keri',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Lasen Keri',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>SP Garlic</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('SP Garlic',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('SP Garlic',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Rayta Kerda</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Rayta Kerda',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Rayta Kerda',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Masala Kerda</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Masala Kerda',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Masala Kerda',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Dara</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Dara',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Dara',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Garmar</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Garmar',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Garmar',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Dara Garmar Mix</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Dara Garmar Mix',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Dara Garmar Mix',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Lila Mari 200 GM</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Lila Mari 200 GM',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Lila Mari 200 GM',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+<div class="product">
+  <h3>Lila Mari 400 GM</h3>
+  <div class="sizes">
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Lila Mari 400 GM',250,150,this)">250 GM<br><b>₹150</b><br><small>ADD TO CART</small></button>
+    <button class="sizebtn" onclick="event.stopPropagation();addToCart('Lila Mari 400 GM',500,300,this)">500 GM<br><b>₹300</b><br><small>ADD TO CART</small></button>
+  </div>
+</div>
+</div></div>
+
+<div class="section actions location-only">
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Kakkad+Pickles+Rajkot" target="_blank"><b>📍 LOCATION</b><small>Rajkot, Gujarat</small></a>
+
+</div>
+
+<div class="footer">KAKKAD PICKLES • RAJKOT<br><span class="phone">9824899182</span><br><br>Real taste of Kathyawadi ❤️</div>
+</div></div>
+<script>
+const cart={};
+
+function addToCart(product,size,price,button){
+  const key=product+'|'+size;
+  if(!cart[key]) cart[key]={name:product,size:size,price:price,qty:0};
+  cart[key].qty += 1;
+
+  document.querySelectorAll('.sizebtn').forEach(function(b){
+    b.classList.remove('selected');
+  });
+  if(button) button.classList.add('selected');
+
+  const selected=document.getElementById('selectedProductView');
+  if(selected){
+    selected.style.display='block';
+    selected.querySelector('.selected-name').textContent=product;
+    selected.querySelector('.selected-size').textContent=size+' GM • ₹'+price+' • Added to Cart';
+  }
+
+  renderCart();
+  document.getElementById('cartPanel').classList.add('show'); document.body.classList.add('cart-open');
+}
+
+function changeQty(key,amount){
+  if(!cart[key]) return;
+  cart[key].qty += amount;
+  if(cart[key].qty<=0) delete cart[key];
+  renderCart();
+}
+
+function renderCart(){
+  const items=Object.values(cart);
+  const count=items.reduce(function(sum,item){return sum+item.qty;},0);
+  const total=items.reduce(function(sum,item){return sum+(item.qty*item.price);},0);
+
+  const countEl=document.getElementById('cartCount');
+  if(countEl) countEl.textContent=count;
+
+  const list=document.getElementById('cartList');
+  if(!list) return;
+
+  if(!items.length){
+    list.innerHTML='<div style="text-align:center;color:#aaa;padding:10px">Your cart is empty</div>';
+  }else{
+    list.innerHTML=items.map(function(item){
+      const key=item.name+'|'+item.size;
+      const safeKey=key.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      return '<div class="cartitem">'+
+        '<span><span class="cartitemname">'+item.name+'</span><small class="cartitemmeta">'+item.size+' GM • ₹'+item.price+' each</small></span>'+
+        '<span class="qty">'+
+        '<button type="button" onclick="changeQty(\''+safeKey+'\',-1)">−</button>'+
+        item.qty+
+        '<button type="button" onclick="changeQty(\''+safeKey+'\',1)">+</button>'+
+        '</span></div>';
+    }).join('');
+  }
+
+  const totalEl=document.getElementById('cartTotal');
+  if(totalEl) totalEl.textContent='₹'+total;
+}
+
+function toggleCart(){
+  const panel=document.getElementById('cartPanel');
+  if(!panel) return;
+  panel.classList.toggle('show');
+  document.body.classList.toggle('cart-open',panel.classList.contains('show'));
+}
+
+function orderCart(){
+  const items=Object.values(cart);
+  if(!items.length){
+    alert('Please add a product first.');
+    return;
+  }
+  const total=items.reduce(function(sum,item){return sum+(item.qty*item.price);},0);
+  const lines=items.map(function(item){
+    return item.name+' - '+item.size+' GM × '+item.qty+' = ₹'+(item.qty*item.price);
+  });
+  const message='Hello Kakkad Pickles, I want to order:\\n'+lines.join('\\n')+'\\nTotal = ₹'+total;
+  window.open('https://wa.me/919824899182?text='+encodeURIComponent(message),'_blank');
+}
+
+function selectProduct(p){ }
+</script>
+
+<div id="cartPanel" class="cartpanel">
+  <div class="carthead">
+    <strong>YOUR CART</strong>
+    <button class="closecart" type="button" onclick="toggleCart()">×</button>
+  </div>
+  <div id="cartList"></div>
+  <div class="cartsummary"><span>Total</span><span id="cartTotal">₹0</span></div>
+  <button class="cartorder" type="button" onclick="orderCart()">🟢 ORDER ON WHATSAPP</button>
+</div>
+<div class="cartbar">
+  <button class="cartbtn" onclick="toggleCart()"><span>🛒 VIEW CART</span><span id="cartCount" class="cartcount">0</span></button>
+</div>
+</body></html>
