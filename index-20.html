@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07150f">
+<title>Kakkad Pickles | Rajkot</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#030604;color:#fff;font-family:Arial,sans-serif}
+.page{width:min(100%,540px);margin:auto;min-height:100vh;padding:12px 10px 100px;background:linear-gradient(180deg,#10251a,#07110c 45%,#030604)}
+.main{border:1px solid #bd8f35;border-radius:28px;padding:18px 12px 24px;background:linear-gradient(145deg,#102018,#050806);box-shadow:0 0 35px #000}
+.logo{width:82px;height:82px;margin:auto;border:2px solid #d9aa43;border-radius:50%;display:grid;place-items:center;background:#06140c;color:#e8bb50;font:700 45px Georgia}
+h1{text-align:center;margin:12px 0 2px;color:#e9bc54;font:700 34px Georgia;letter-spacing:2px}
+.sub{text-align:center;color:#ddd;font-size:12px;letter-spacing:3px}.tag{text-align:center;color:#f1dbad;font:italic 19px Georgia;margin:10px 0 18px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.action{min-height:62px;border:1px solid #9b742d;border-radius:15px;background:linear-gradient(135deg,#11321e,#07130c);color:#fff;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}.action strong{color:#eabd55;font-size:15px}.action small{color:#aaa;margin-top:4px;font-size:10px}
+.hero{margin-top:15px;padding:18px 12px;text-align:center;border:1px solid #88652a;border-radius:18px;background:linear-gradient(135deg,#10291a,#211709)}.hero strong{display:block;color:#efc25a;font:700 22px Georgia}.hero span{display:block;color:#ccc;font-size:12px;margin-top:6px}
+.section{margin-top:18px}.products{padding:16px 10px;border:1px solid #654c21;border-radius:23px;background:#07110c}.section-title{text-align:center;color:#eabd57;font:700 27px Georgia}.section-sub{text-align:center;color:#999;font-size:11px;letter-spacing:1px;margin:5px 0 15px}
+.product-list{display:grid;grid-template-columns:1fr;gap:12px}.product-card{padding:16px 12px;border:1px solid #87652b;border-radius:19px;background:linear-gradient(145deg,#12261a,#08120d)}.product-card h3{margin:0 0 12px;text-align:center;color:#edc15b;font:700 20px/1.25 Georgia}.size-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.size-card{min-height:112px;padding:9px 6px;border:1px solid #9b742d;border-radius:13px;background:#08150e;color:#fff;cursor:pointer;touch-action:manipulation}.size-card:active{transform:scale(.97)}.size-card.selected{border-color:#f6d77c;box-shadow:0 0 17px #d19e3c55}.size{display:block;font-size:14px;font-weight:700}.price{display:block;color:#edbd50;font-size:22px;font-weight:900;margin:7px 0 10px}.add{display:block;padding:9px 3px;border-radius:9px;background:linear-gradient(135deg,#c88f2b,#edc35c);color:#111;font-size:10px;font-weight:900}
+.location{margin-top:16px;display:flex;justify-content:center}.location a{width:min(100%,340px)}.footer{text-align:center;color:#777;font-size:11px;margin-top:18px}.phone{color:#e6b64f;font-weight:800}
+.cart-bar{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);width:min(94%,520px);z-index:100}.view-cart{width:100%;padding:14px 17px;border:1px solid #e4b84d;border-radius:18px;background:linear-gradient(135deg,#c78f2b,#f0c75d);color:#111;font-size:15px;font-weight:900;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 30px #000b;cursor:pointer}.cart-count{min-width:31px;padding:5px 10px;border-radius:20px;background:#111;color:#efc15b;text-align:center}
+.cart-panel{display:none;position:fixed;left:50%;bottom:78px;transform:translateX(-50%);width:min(94%,520px);max-height:62vh;overflow:auto;z-index:99;padding:18px;background:#07110c;border:1px solid #c99a32;border-radius:23px;box-shadow:0 18px 55px #000e}.cart-panel.show{display:block}.cart-head{display:flex;align-items:center;justify-content:space-between}.cart-head h2{margin:0;color:#edc15b;font:700 23px Georgia}.close-cart{width:35px;height:35px;border:1px solid #866326;border-radius:10px;background:#09150e;color:#fff;font-size:21px}.cart-list{margin-top:8px}.cart-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #ffffff12}.cart-name{font-weight:800}.cart-meta{display:block;color:#aaa;font-size:12px;margin-top:4px}.qty{display:flex;align-items:center;gap:8px}.qty button{width:30px;height:30px;border:1px solid #a97b2d;border-radius:8px;background:#0b1b12;color:#edbd50;font-weight:900;font-size:18px}.summary{display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid #a77b2d55;color:#edbd50;font-size:18px;font-weight:900}.order{width:100%;margin-top:12px;padding:14px;border:0;border-radius:13px;background:#19a94b;color:#fff;font-size:15px;font-weight:900;cursor:pointer}.empty{text-align:center;color:#aaa;padding:18px}
+@media(min-width:600px){.product-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="page"><div class="main">
+<div class="logo">K</div><h1>KAKKAD</h1><div class="sub">PICKLES • RAJKOT</div><div class="tag">Real Taste of Kathyawadi</div>
+<div class="actions">
+<a class="action" href="tel:+919824899182"><strong>📞 CALL NOW</strong><small>9824899182</small></a>
+<a class="action" href="https://wa.me/919824899182" target="_blank"><strong>🟢 WHATSAPP</strong><small>Message Us</small></a>
+<button class="action" type="button" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><strong>🛒 PRODUCTS</strong><small>View Pickles</small></button>
+<button class="action" type="button" onclick="shareCard()"><strong>↗ SHARE</strong><small>Share Card</small></button>
+</div>
+<div class="hero"><strong>AUTHENTIC KATHIYAWADI TASTE</strong><span>Traditional recipes • Premium ingredients • Made with care</span></div>
+<section class="section products" id="products"><div class="section-title">OUR PICKLES</div><div class="section-sub">SELECT SIZE • ADD TO CART</div><div class="product-list">
+<article class="product-card">
+<h3>Golkeri</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Golkeri',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Golkeri',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Chundo</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Chundo',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Chundo',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Keri Gunda</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Keri Gunda',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Keri Gunda',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>SP Gunda</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('SP Gunda',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('SP Gunda',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Chana Methi Keri</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Chana Methi Keri',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Chana Methi Keri',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Khati Keri</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Khati Keri',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Khati Keri',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Mix Punjabi</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Mix Punjabi',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Mix Punjabi',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Sweet Lime</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Sweet Lime',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Sweet Lime',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Khata Limbu</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Khata Limbu',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Khata Limbu',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Rayta Lal Marcha</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Rayta Lal Marcha',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Rayta Lal Marcha',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Sweet Red Chilly</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Sweet Red Chilly',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Sweet Red Chilly',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Lasen Keri</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Lasen Keri',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Lasen Keri',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>SP Garlic</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('SP Garlic',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('SP Garlic',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Rayta Kerda</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Rayta Kerda',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Rayta Kerda',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Masala Kerda</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Masala Kerda',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Masala Kerda',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Dara</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Dara',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Dara',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Garmar</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Garmar',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Garmar',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Dara Garmar Mix</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Dara Garmar Mix',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Dara Garmar Mix',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Lila Mari 200 GM</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Lila Mari 200 GM',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Lila Mari 200 GM',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+<article class="product-card">
+<h3>Lila Mari 400 GM</h3>
+<div class="size-grid">
+<button class="size-card" type="button" onclick="addToCart('Lila Mari 400 GM',250,150,this)"><span class="size">250 GM</span><span class="price">₹150</span><span class="add">🛒 ADD TO CART</span></button>
+<button class="size-card" type="button" onclick="addToCart('Lila Mari 400 GM',500,300,this)"><span class="size">500 GM</span><span class="price">₹300</span><span class="add">🛒 ADD TO CART</span></button>
+</div></article>
+</div></section>
+<div class="location"><a class="action" href="https://www.google.com/maps/search/?api=1&query=Kakkad+Pickles+Rajkot" target="_blank"><strong>📍 LOCATION</strong><small>Rajkot, Gujarat</small></a></div>
+<div class="footer">KAKKAD PICKLES • RAJKOT<br><span class="phone">9824899182</span><br><br>Real Taste of Kathyawadi ❤️</div>
+</div></div>
+
+<div id="cartPanel" class="cart-panel">
+<div class="cart-head"><h2>YOUR CART</h2><button class="close-cart" type="button" onclick="toggleCart()">×</button></div>
+<div id="cartList" class="cart-list"></div>
+<div class="summary"><span>Total</span><span id="cartTotal">₹0</span></div>
+<button class="order" type="button" onclick="orderCart()">🟢 ORDER ON WHATSAPP</button>
+</div>
+<div class="cart-bar"><button class="view-cart" type="button" onclick="toggleCart()"><span>🛒 VIEW CART</span><span id="cartCount" class="cart-count">0</span></button></div>
+
+<script>
+const cart = {};
+
+function addToCart(product, size, price, button) {
+  const key = product + "|" + size;
+  if (!cart[key]) cart[key] = {name:product, size:size, price:price, qty:0};
+  cart[key].qty++;
+  document.querySelectorAll(".size-card").forEach(function(b){ b.classList.remove("selected"); });
+  if (button) button.classList.add("selected");
+  updateCart();
+  document.getElementById("cartPanel").classList.add("show");
+}
+
+function changeQty(key, amount) {
+  if (!cart[key]) return;
+  cart[key].qty += amount;
+  if (cart[key].qty <= 0) delete cart[key];
+  updateCart();
+}
+
+function updateCart() {
+  const items = Object.values(cart);
+  let count = 0, total = 0;
+  items.forEach(function(item){ count += item.qty; total += item.qty * item.price; });
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("cartTotal").textContent = "₹" + total;
+
+  const list = document.getElementById("cartList");
+  if (!items.length) {
+    list.innerHTML = '<div class="empty">Your cart is empty</div>';
+    return;
+  }
+
+  list.innerHTML = items.map(function(item) {
+    const key = item.name + "|" + item.size;
+    return '<div class="cart-item"><div><div class="cart-name">' +
+      item.name + '</div><div class="cart-meta">' +
+      item.size + ' GM • ₹' + item.price + ' each</div></div><div class="qty">' +
+      '<button type="button" onclick="changeQty(' + JSON.stringify(key) + ',-1)">−</button>' +
+      '<span>' + item.qty + '</span>' +
+      '<button type="button" onclick="changeQty(' + JSON.stringify(key) + ',1)">+</button>' +
+      '</div></div>';
+  }).join("");
+}
+
+function toggleCart() {
+  document.getElementById("cartPanel").classList.toggle("show");
+}
+
+function orderCart() {
+  const items = Object.values(cart);
+  if (!items.length) { alert("Please add a product first."); return; }
+
+  let total = 0;
+  const lines = items.map(function(item) {
+    const amount = item.qty * item.price;
+    total += amount;
+    return item.name + " - " + item.size + " GM × " + item.qty + " = ₹" + amount;
+  });
+
+  const message = "Hello Kakkad Pickles, I want to order:\n\n" +
+    lines.join("\n") + "\n\nTotal = ₹" + total;
+
+  window.open("https://wa.me/919824899182?text=" + encodeURIComponent(message), "_blank");
+
+  Object.keys(cart).forEach(function(key){ delete cart[key]; });
+  document.querySelectorAll(".size-card").forEach(function(b){ b.classList.remove("selected"); });
+  updateCart();
+  document.getElementById("cartPanel").classList.remove("show");
+}
+
+function shareCard() {
+  const text = "Kakkad Pickles - Rajkot\nReal Taste of Kathyawadi\n📞 9824899182";
+  if (navigator.share) {
+    navigator.share({title:"Kakkad Pickles", text:text}).catch(function(){});
+  } else {
+    window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+  }
+}
+
+updateCart();
+</script>
+</body>
+</html>
